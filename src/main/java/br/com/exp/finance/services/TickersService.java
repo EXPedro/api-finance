@@ -1,0 +1,26 @@
+package br.com.exp.finance.services;
+
+import br.com.exp.finance.model.Tickers;
+import br.com.exp.finance.repository.TickersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class TickersService {
+
+    //chama repositório
+    TickersRepository tickersRepository;
+
+    //"magia" spring
+    @Autowired
+    public TickersService(TickersRepository tickersRepository){
+        this.tickersRepository = tickersRepository;
+    }
+
+    //lista todos os ativos - GET
+    public List<Tickers> findAll(){
+        return tickersRepository.findAll();
+    }
+}
