@@ -7,6 +7,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service
+ * Implements CRUD operations on 'tickersRepository'
+ * @author eXP
+ * @version 0.1
+ */
+
 @Service
 public class TickersService {
 

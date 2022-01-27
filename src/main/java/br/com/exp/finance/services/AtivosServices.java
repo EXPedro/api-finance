@@ -9,7 +9,13 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-//Classe que implementa serviço de operações CRUD na tabela Ativos
+/**
+ * Service
+ * Implements CRUD operations on 'ativosRepository'
+ * @author eXP
+ * @version 0.1
+ */
+
 @Service
 public class AtivosServices {
 
