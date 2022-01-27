@@ -30,27 +30,50 @@ public class AtivosServices {
         this.ativosRepository = ativosRepository;
     }
 
-    //grava novos ativos - POST
+    /**
+     * Create method of CRUD -> POST
+     * save Ativos
+     * @param ativos
+     * @return Ativos
+     */
     public Ativos saveAtivos(Ativos ativos){
         return ativosRepository.save(ativos);
     }
 
-    //lista todos os ativos - GET
+    /**
+     * Read all method of CRUD -> GET
+     * get all Ativos
+     * @return List<Ativos>
+     */
     public List<Ativos> findAll(){
         return ativosRepository.findAll();
     }
 
-    //lista ativos por id - GET ById
+    /**
+     * Read by Id method of CRUD -> GET
+     * get byId Ativos
+     * @param codigo
+     * @return Optional<Ativos>
+     */
     public Optional<Ativos> findById(Long codigo){
         return ativosRepository.findById(codigo);
     }
 
-    //atualiza ativos - PUT
+    /**
+     * Updade method of CRUD -> PUT
+     * PUT in Ativos
+     * @param ativos
+     * @return Ativos
+     */
     public Ativos updateAtivos(Ativos ativos){
         return ativosRepository.save(ativos);
     }
 
-    //deleta ativos - DELETE ById
+    /**
+     * Delete method of CRUD -> DELETE
+     * DELETE byId in Ativos
+     * @param codigo
+     */
     public void deleteAtivos(Long codigo){
         ativosRepository.deleteById(codigo);
     }

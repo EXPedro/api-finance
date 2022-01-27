@@ -26,7 +26,11 @@ public class TickersService {
         this.tickersRepository = tickersRepository;
     }
 
-    //lista todos os ativos - GET
+    /**
+     * Read all method of CRUD -> GET
+     * get all Tickers
+     * @return List<Tickers>
+     */
     public List<Tickers> findAll(){
         return tickersRepository.findAll();
     }
