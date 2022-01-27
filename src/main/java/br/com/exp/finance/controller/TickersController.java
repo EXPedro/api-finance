@@ -9,14 +9,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-//implementando apenas GET
+/**
+ * Controller class
+ * of endpoint '/api/v1/'
+ * '/tickers'
+ * @author eXP
+ * @version 0.1
+ */
+
 @RestController
 @RequestMapping("/api/v1")
 public class TickersController {
+
     //Agora autowired não é repository, mas serviçp
     @Autowired
     TickersService tickersService;
 
+    /**
+     * GET mapping
+     * @return List<Tickers>
+     */
     @GetMapping("/tickers")
     public List<Tickers> getTickers(){
         return tickersService.findAll();
