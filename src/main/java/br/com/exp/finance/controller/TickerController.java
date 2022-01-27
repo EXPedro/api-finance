@@ -1,7 +1,7 @@
 package br.com.exp.finance.controller;
 
-import br.com.exp.finance.model.Tickers;
-import br.com.exp.finance.services.TickersService;
+import br.com.exp.finance.model.Ticker;
+import br.com.exp.finance.services.TickerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,19 +19,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
-public class TickersController {
+public class TickerController {
 
     //Agora autowired não é repository, mas serviçp
     @Autowired
-    TickersService tickersService;
+    TickerService tickerService;
 
     /**
      * GET mapping
-     * @return List<Tickers>
+     * @return List<Ticker>
      */
     @GetMapping("/tickers")
-    public List<Tickers> getTickers(){
-        return tickersService.findAll();
+    public List<Ticker> getTickers(){
+        return tickerService.findAll();
     }
 }
 

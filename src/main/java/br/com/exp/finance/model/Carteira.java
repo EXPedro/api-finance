@@ -8,19 +8,19 @@ import lombok.Setter;
 import javax.persistence.*;
 
 /**
- * Carteiras
+ * Carteira
  * <p>
- *     <b>carteiras</b>
+ *     <b>carteira</b>
  * @author eXP
  * @version 0.1
  */
 
 @Entity
-@Table(name="carteiras")
+@Table(name="carteira")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Carteiras {
+public class Carteira {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long codigo;

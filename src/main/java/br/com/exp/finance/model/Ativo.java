@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
- * Ativos
+ * Ativo
  * <p>
  *     <b>cod_carteira</b>
  *     ( 017, 020, 174)
@@ -26,11 +26,11 @@ import java.math.BigDecimal;
  */
 
 @Entity
-@Table(name="ativos")
+@Table(name="ativo")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Ativos {
+public class Ativo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long codigo;

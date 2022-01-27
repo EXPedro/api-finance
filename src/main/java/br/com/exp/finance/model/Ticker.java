@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 /**
- * Tickers
+ * Ticker
  * <p>
  *     <b>ticker:</b>
  *     primary key
@@ -26,11 +26,11 @@ import java.math.BigDecimal;
  */
 
 @Entity
-@Table(name="tickers")
+@Table(name="ticker")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Tickers {
+public class Ticker {
     @Id
     private String ticker;
 

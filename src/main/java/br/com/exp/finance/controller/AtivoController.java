@@ -1,7 +1,7 @@
 package br.com.exp.finance.controller;
 
-import br.com.exp.finance.model.Ativos;
-import br.com.exp.finance.services.AtivosServices;
+import br.com.exp.finance.model.Ativo;
+import br.com.exp.finance.services.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,19 +17,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
-public class AtivosController {
+public class AtivoController {
 
     //Agora autowired não é repository, mas serviçp
     @Autowired
-    AtivosServices ativosService;
+    AtivoService ativoService;
 
     /**
      * GET mapping
-     * @return List<Ativos>
+     * @return List<Ativo>
      */
     @GetMapping("/ativos")
-    public List<Ativos> getAtivos(){
-        return ativosService.findAll();
+    public List<Ativo> getAtivos(){
+        return ativoService.findAll();
     }
 
 }
