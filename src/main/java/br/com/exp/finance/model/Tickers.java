@@ -21,7 +21,6 @@ import java.math.BigDecimal;
  * <p>
  *     <b>tipo:</b>
  *     type of ticker(ação, fii, etf)
- * <p>
  * @author eXP
  * @version 0.1
  */

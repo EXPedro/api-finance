@@ -11,7 +11,6 @@ import javax.persistence.*;
  * Carteiras
  * <p>
  *     <b>carteiras</b>
- * <p>
  * @author eXP
  * @version 0.1
  */

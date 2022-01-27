@@ -21,7 +21,6 @@ import java.math.BigDecimal;
  * <p>
  *     <b>pm</b>
  *     average price
- * <p>
  * @author eXP
  * @version 0.1
  */
