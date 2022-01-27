@@ -10,6 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
+/**
+ * Entity "tickers", w/ data relative to
+ * 'ticker'
+ * primary key: ticker
+ * current price
+ * type of ticker(ação, fii, etf)
+ * lombok getters, setters and no args constructor
+ * @author eXP
+ * @version 0.1
+ */
+
 @Entity
 @Table(name="tickers")
 @Getter
