@@ -1,4 +1,4 @@
-INSERT INTO Tickers (tipo, ticker, atual)
+INSERT INTO Ticker (tipo, ticker, atual)
 VALUES
 (4, "BARI11", 102.92),
 (4, "CPTS11", 102.92),
@@ -44,7 +44,7 @@ VALUES
 (1, "TAEE11", 36.21),
 (1, "VALE3", 79.48);
 
-INSERT INTO Ativos (codigo_carteira, ticker, quantidade, pm)
+INSERT INTO Ativo (codigo_carteira, ticker, quantidade, pm)
 VALUES
 (1, "BARI11", 156, 89.64),
 (1, "FIIP11B", 61, 163.89),
@@ -85,9 +85,9 @@ VALUES
 (2, "RECT11", 41, 98.33),
 (2, "TGAR11", 20, 122.57);
 
-TRUNCATE Tickers;
+TRUNCATE Ticker;
 
-INSERT INTO Ativos (codigo_carteira, ticker, quantidade, pm)
+INSERT INTO Ativo (codigo_carteira, ticker, quantidade, pm)
 VALUES
 (1, "BBAS3", 303, 29.91),
 (1, "BBSE3", 310, 25.29),
@@ -122,8 +122,8 @@ VALUES
 (2, "VERZ34", 107, 54.51);
 
 
-SELECT * FROM Ativos;
+SELECT * FROM Ativo;
 
-SELECT sum(quantidade * pm) FROM Ativos;
+SELECT sum(quantidade * pm) FROM Ativo;
 
-SELECT sum(a.quantidade * t.atual) FROM Ativos a JOIN Tickers t ON a.ticker = t.ticker;
+SELECT sum(a.quantidade * t.atual) FROM Ativo a JOIN Ticker t ON a.ticker = t.ticker;
