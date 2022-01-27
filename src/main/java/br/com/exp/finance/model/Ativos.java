@@ -8,12 +8,20 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
- * Entity "ativos", w/ data relative to
- * 'carteiras'(cod_carteira)
- * ticker on the 'Carteira'
- * quantity of stocks by ticker
- * average price
- * lombok getters, setters and no args constructor
+ * Ativos
+ * <p>
+ *     <b>cod_carteira</b>
+ *     ( 017, 020, 174)
+ * <p>
+ *     <b>ticker</b>
+ *     on the 'Carteira'
+ * <p>
+ *     <b>quantidade</b>
+ *     quantity of stocks by ticker
+ * <p>
+ *     <b>pm</b>
+ *     average price
+ * <p>
  * @author eXP
  * @version 0.1
  */

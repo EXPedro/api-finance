@@ -8,9 +8,10 @@ import lombok.Setter;
 import javax.persistence.*;
 
 /**
- * Entity "carteiras", w/ data relative to
- * 'carteiras'
- * lombok getters, setters and no args constructor
+ * Carteiras
+ * <p>
+ *     <b>carteiras</b>
+ * <p>
  * @author eXP
  * @version 0.1
  */

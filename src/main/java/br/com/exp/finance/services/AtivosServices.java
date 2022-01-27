@@ -33,8 +33,8 @@ public class AtivosServices {
     /**
      * Create method of CRUD -> POST
      * save Ativos
-     * @param ativos
-     * @return Ativos
+     * @param ativos Ativos
+     * @return {@link Ativos}
      */
     public Ativos saveAtivos(Ativos ativos){
         return ativosRepository.save(ativos);
@@ -43,7 +43,7 @@ public class AtivosServices {
     /**
      * Read all method of CRUD -> GET
      * get all Ativos
-     * @return List<Ativos>
+     * @return {@link List<Ativos>}
      */
     public List<Ativos> findAll(){
         return ativosRepository.findAll();
@@ -52,8 +52,8 @@ public class AtivosServices {
     /**
      * Read by Id method of CRUD -> GET
      * get byId Ativos
-     * @param codigo
-     * @return Optional<Ativos>
+     * @param codigo Ativos id
+     * @return {@link Optional<Ativos>}
      */
     public Optional<Ativos> findById(Long codigo){
         return ativosRepository.findById(codigo);
@@ -62,8 +62,8 @@ public class AtivosServices {
     /**
      * Updade method of CRUD -> PUT
      * PUT in Ativos
-     * @param ativos
-     * @return Ativos
+     * @param ativos Ativos
+     * @return {@link Ativos}
      */
     public Ativos updateAtivos(Ativos ativos){
         return ativosRepository.save(ativos);
@@ -72,7 +72,7 @@ public class AtivosServices {
     /**
      * Delete method of CRUD -> DELETE
      * DELETE byId in Ativos
-     * @param codigo
+     * @param codigo Ativos id
      */
     public void deleteAtivos(Long codigo){
         ativosRepository.deleteById(codigo);

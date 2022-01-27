@@ -29,7 +29,7 @@ public class TickersService {
     /**
      * Read all method of CRUD -> GET
      * get all Tickers
-     * @return List<Tickers>
+     * @return {@link List<Tickers>}
      */
     public List<Tickers> findAll(){
         return tickersRepository.findAll();
