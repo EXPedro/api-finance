@@ -3,14 +3,19 @@ package br.com.exp.finance.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Ticker
@@ -31,9 +36,13 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class Ticker {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idTicker;
+
+    @Column(nullable = false, unique = true)
     private String ticker;
 
-    @OneToOne
-    @JoinColumn(name="id_tipo")
-    private Tipo codigo_tipo;
+    @ManyToOne
+    private Tipo codigoTipo;
+
 }
