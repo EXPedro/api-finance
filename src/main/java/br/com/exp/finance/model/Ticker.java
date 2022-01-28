@@ -36,10 +36,6 @@ import java.util.List;
 @NoArgsConstructor
 public class Ticker {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idTicker;
-
-    @Column(nullable = false, unique = true)
     private String ticker;
 
     @ManyToOne
