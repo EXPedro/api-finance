@@ -11,18 +11,21 @@ import java.math.BigDecimal;
  * Ativo
  * <p>
  *     <b>cod_carteira</b>
- *     ( 017, 020, 174)
+ *     Carteira, foreign key
  * <p>
  *     <b>ticker</b>
- *     on the 'Carteira'
+ *     Ticker, foreign key
  * <p>
  *     <b>quantidade</b>
- *     quantity of stocks by ticker
+ *     Quantity of stocks/ticker
  * <p>
  *     <b>pm</b>
- *     average price
+ *     Average price
+ * <p>
+ *     <b>atual</b>
+ *     Current price, nullable
  * @author eXP
- * @version 0.1
+ * @version 0.2
  */
 
 @Entity
@@ -33,17 +36,22 @@ import java.math.BigDecimal;
 public class Ativo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long codigo;
+    private Long id_ativo;
 
-    @Column(nullable = false)
-    private Long codigo_carteira;
+    @ManyToOne
+    @JoinColumn(name="id_carteira")
+    private Carteira codigo_carteira;
 
-    @Column(nullable = false)
-    private String ticker;
+    @ManyToOne
+    @JoinColumn(name="ticker")
+    private Ticker ticker;
 
     @Column(nullable = false)
     private int quantidade;
 
     @Column(nullable = false)
     private BigDecimal pm;
+
+    @Column
+    private BigDecimal atual;
 }

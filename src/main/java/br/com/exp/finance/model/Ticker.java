@@ -7,6 +7,8 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
@@ -14,15 +16,12 @@ import java.math.BigDecimal;
  * Ticker
  * <p>
  *     <b>ticker:</b>
- *     primary key
- * <p>
- *     <b>atual:</b>
- *     current price
+ *     String, primary key
  * <p>
  *     <b>tipo:</b>
- *     type of ticker(ação, fii, etf)
+ *     Tipo, type of ticker
  * @author eXP
- * @version 0.1
+ * @version 0.2
  */
 
 @Entity
@@ -34,9 +33,7 @@ public class Ticker {
     @Id
     private String ticker;
 
-    @Column
-    private BigDecimal atual;
-
-    @Column(nullable = false)
-    private String tipo;
+    @OneToOne
+    @JoinColumn(name="id_tipo")
+    private Tipo codigo_tipo;
 }

@@ -11,8 +11,10 @@ import javax.persistence.*;
  * Carteira
  * <p>
  *     <b>carteira</b>
+ *     String
+ * <p>
  * @author eXP
- * @version 0.1
+ * @version 0.2
  */
 
 @Entity
@@ -23,7 +25,7 @@ import javax.persistence.*;
 public class Carteira {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long codigo;
+    private Long id_carteira;
 
     @Column(nullable = false)
     private String carteira;
