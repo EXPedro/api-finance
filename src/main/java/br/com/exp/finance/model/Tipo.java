@@ -1,5 +1,6 @@
 package br.com.exp.finance.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,9 +31,12 @@ public class Tipo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_tipo;
+    private Long idTipo;
 
     @Column(nullable = false)
     private String tipo;
 
+    public Tipo(Long id){
+        this.idTipo = id;
+    }
 }
