@@ -1,5 +1,6 @@
 package br.com.exp.finance.services;
 
+import br.com.exp.finance.model.Ativo;
 import br.com.exp.finance.model.Ticker;
 import br.com.exp.finance.repository.TickerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,15 @@ public class TickerService {
      */
     public List<Ticker> findAll(){
         return tickerRepository.findAll();
+    }
+
+    /**
+     * Create method of CRUD -> POST
+     * save Ativo
+     * @param ticker Ticker
+     * @return {@link Ticker}
+     */
+    public Ticker saveTicker(Ticker ticker){
+        return tickerRepository.save(ticker);
     }
 }
