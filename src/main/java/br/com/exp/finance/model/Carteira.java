@@ -25,8 +25,12 @@ import javax.persistence.*;
 public class Carteira {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_carteira;
+    private Long idCarteira;
 
     @Column(nullable = false)
     private String carteira;
+
+    public Carteira(Long id){
+        this.idCarteira = id;
+    }
 }
