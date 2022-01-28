@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Ativo
@@ -36,15 +37,13 @@ import java.math.BigDecimal;
 public class Ativo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_ativo;
+    private Long idAtivo;
 
     @ManyToOne
-    @JoinColumn(name="id_carteira")
-    private Carteira codigo_carteira;
+    private Carteira codigoCarteira;
 
     @ManyToOne
-    @JoinColumn(name="ticker")
-    private Ticker ticker;
+    private Ticker codigoTicker;
 
     @Column(nullable = false)
     private int quantidade;
