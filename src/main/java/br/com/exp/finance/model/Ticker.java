@@ -41,4 +41,7 @@ public class Ticker {
     @ManyToOne
     private Tipo codigoTipo;
 
+    public Ticker (String ticker){
+        this.ticker = ticker;
+    }
 }
