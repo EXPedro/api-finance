@@ -1,7 +1,6 @@
 package br.com.exp.finance.controller;
 
 import br.com.exp.finance.model.Ativo;
-import br.com.exp.finance.model.Ticker;
 import br.com.exp.finance.services.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,9 +25,12 @@ public class AtivoController {
 
     /**
      * POST mapping
+     * <p>
+     * Creation of Ativo
+     * @param ativo Ativo
      */
     @PostMapping("/ativos")
-    public Ativo createTicker(@RequestBody Ativo ativo){
+    public Ativo createAtivo(@RequestBody Ativo ativo){
         return ativoService.saveAtivo(ativo);
     }
 

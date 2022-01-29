@@ -29,6 +29,9 @@ public class TickerController {
 
     /**
      * POST mapping
+     * <p>
+     * Creation of Ticker
+     * @param ticker Ticker
      */
     @PostMapping("/tickers")
     public Ticker createTicker(@RequestBody Ticker ticker){
