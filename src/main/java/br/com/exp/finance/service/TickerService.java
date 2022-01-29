@@ -1,6 +1,5 @@
-package br.com.exp.finance.services;
+package br.com.exp.finance.service;
 
-import br.com.exp.finance.model.Ativo;
 import br.com.exp.finance.model.Ticker;
 import br.com.exp.finance.repository.TickerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ public class TickerService {
     /**
      * Read all method of CRUD -> GET
      * get all Ticker
-     * @return {@link List< Ticker >}
+     * @return {@link List<Ticker>}
      */
     public List<Ticker> findAll(){
         return tickerRepository.findAll();

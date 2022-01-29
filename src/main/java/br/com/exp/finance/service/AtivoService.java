@@ -1,4 +1,4 @@
-package br.com.exp.finance.services;
+package br.com.exp.finance.service;
 
 import br.com.exp.finance.model.Ativo;
 import br.com.exp.finance.repository.AtivoRepository;
@@ -31,7 +31,8 @@ public class AtivoService {
     }
 
     /**
-     * Create method of CRUD -> POST
+     * Create method of CRUD: POST
+     * <p>
      * save Ativo
      * @param ativo Ativo
      * @return {@link Ativo}
@@ -41,8 +42,9 @@ public class AtivoService {
     }
 
     /**
-     * Read all method of CRUD -> GET
-     * get all Ativo
+     * Read all method of CRUD: GET
+     * <p>
+     * get Ativo
      * @return {@link List<Ativo>}
      */
     public List<Ativo> findAll(){
@@ -50,8 +52,9 @@ public class AtivoService {
     }
 
     /**
-     * Read by Id method of CRUD -> GET
-     * get byId Ativo
+     * Read method of CRUD: GET byId
+     * <p>
+     * GET Ativo byId
      * @param codigo Ativo id
      * @return {@link Optional<Ativo>}
      */
@@ -60,7 +63,8 @@ public class AtivoService {
     }
 
     /**
-     * Updade method of CRUD -> PUT
+     * Updade method of CRUD: PUT
+     * <p>
      * PUT in Ativo
      * @param ativo Ativo
      * @return {@link Ativo}
@@ -70,8 +74,9 @@ public class AtivoService {
     }
 
     /**
-     * Delete method of CRUD -> DELETE
-     * DELETE byId in Ativo
+     * Delete method of CRUD: DELETE
+     * <p>
+     * DELETE Ativo byId
      * @param codigo Ativo id
      */
     public void deleteAtivos(Long codigo){
