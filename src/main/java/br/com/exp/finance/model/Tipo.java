@@ -36,6 +36,14 @@ public class Tipo {
     @Column(nullable = false)
     private String tipo;
 
+    /**
+     * Constructor with parameter id
+     * <p>
+     * Necessary for Ticker creation
+     * <p>
+     * One Tipo for each Ticker
+     * @param id idTipo
+     */
     public Tipo(Long id){
         this.idTipo = id;
     }

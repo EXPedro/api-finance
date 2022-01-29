@@ -41,6 +41,14 @@ public class Ticker {
     @ManyToOne
     private Tipo codigoTipo;
 
+    /**
+     * Constructor with parameter ticker
+     * <p>
+     * Necessary for Ativo creation
+     * <p>
+     * One Ticker for each Ativo
+     * @param ticker String
+     */
     public Ticker (String ticker){
         this.ticker = ticker;
     }

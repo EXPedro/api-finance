@@ -30,6 +30,14 @@ public class Carteira {
     @Column(nullable = false)
     private String carteira;
 
+    /**
+     * Constructor with parameter id
+     * <p>
+     * Necessary for Ativo creation
+     * <p>
+     * One Carteira for each Ativo
+     * @param id idCarteira
+     */
     public Carteira(Long id){
         this.idCarteira = id;
     }
