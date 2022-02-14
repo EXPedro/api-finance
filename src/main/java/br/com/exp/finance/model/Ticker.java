@@ -39,6 +39,7 @@ public class Ticker {
     private String ticker;
 
     @ManyToOne
+    @JoinColumn(name="codigo_tipo")
     private Tipo codigoTipo;
 
     /**
