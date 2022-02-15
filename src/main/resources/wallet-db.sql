@@ -1,50 +1,65 @@
-INSERT INTO ticker (codigo_tipo, ticker)
+INSERT INTO tipo(id_tipo, tipo)
 VALUES
-(4, "BARI11"),
-(4, "CPTS11"),
-(4, "DEVA11"),
-(4, "FIIP11B"),
-(4, "GGRC11"),
-(4, "HABT11"),
-(4, "HCTR11"),
-(4, "HFOF11"),
-(4, "HGBS11"),
-(4, "HGRE11"),
-(4, "HGRU11"),
-(4, "MFII11"),
-(4, "MXRF11"),
-(4, "RBRF11"),
-(4, "RBVA11"),
-(4, "RECT11"),
-(4, "TGAR11"),
-(4, "TORD11"),
-(4, "XPLG11"),
-(3, "IVVB11"),
-(3, "HASH11"),
-(2, "ATTB34"),
-(2, "BABA34"),
-(2, "COCA34"),
-(2, "DISB34"),
-(2, "JNJB34"),
-(2, "MSFT34"),
-(2, "ORCL34"),
-(2, "PFIZ34"),
-(2, "VERZ34"),
-(1, "BBAS3"),
-(1, "BBSE3"),
-(1, "CPLE3"),
-(1, "EGIE3"),
-(1, "EZTC3"),
-(1, "FLRY3"),
-(1, "IRBR3"),
-(1, "ITSA4"),
-(1, "ITUB3"),
-(1, "MGLU3"),
-(1, "RADL3"),
-(1, "TAEE11"),
-(1, "VALE3");
+(1, "Ação"),
+(2, "BDR"),
+(3, "ETF"),
+(4, "FII");
 
-INSERT INTO ativo (codigo_carteira, codigo_ticker, quantidade, pm, id_ativo)
+SELECT * FROM tipo;
+
+INSERT INTO carteira(id_carteira, carteira)
+VALUES
+(1, "017"),
+(2, "020"),
+(3, "174");
+
+INSERT INTO ticker (codigo_tipo, ticker, atual)
+VALUES
+(4, "BARI11", 103.85),
+(4, "CPTS11", 96.35),
+(4, "DEVA11", 101.35),
+(4, "FIIP11B", 164.15),
+(4, "GGRC11", 112.00),
+(4, "HABT11", 107.89),
+(4, "HCTR11", 121.91),
+(4, "HFOF11", 76.74),
+(4, "HGBS11", 168.80),
+(4, "HGRE11", 131.34),
+(4, "HGRU11", 113.71),
+(4, "MFII11", 107.65),
+(4, "MXRF11", 9.35),
+(4, "RBRF11", 71.70),
+(4, "RBVA11", 95.00),
+(4, "RECT11", 68.76),
+(4, "TGAR11", 115.50),
+(4, "TORD11", 9.36),
+(4, "XPLG11", 97.29),
+(3, "IVVB11", 250.00),
+(3, "HASH11", 39.25),
+(2, "ATTB34", 42.02),
+(2, "BABA34", 22.77),
+(2, "COCA34", 52.80),
+(2, "DISB34", 52.71),
+(2, "JNJB34", 57.90),
+(2, "MSFT34", 64.68),
+(2, "ORCL34", 68.74),
+(2, "PFIZ34", 65.16),
+(2, "VERZ34", 46.47),
+(1, "BBAS3", 33.54),
+(1, "BBSE3", 23.37),
+(1, "CPLE3", 6.27),
+(1, "EGIE3", 40.52),
+(1, "EZTC3", 18.38),
+(1, "FLRY3", 18.19),
+(1, "IRBR3", 3.19),
+(1, "ITSA4", 10.48),
+(1, "ITUB3", 22.68),
+(1, "MGLU3", 6.48),
+(1, "RADL3", 23.00),
+(1, "TAEE11", 37.48),
+(1, "VALE3", 91.57);
+
+INSERT INTO ativo (codigo_carteira, ticker, quantidade, pm, id_ativo)
 VALUES
 (1, "BARI11",  156,  89.64, 1),
 (1, "FIIP11B",  61, 163.89, 2),
@@ -83,13 +98,9 @@ VALUES
 (2, "MFII11",   31, 110.97, 36),
 (2, "MXRF11",  353,  10.54, 37),
 (2, "RECT11",   41,  98.33, 38),
-(2, "TGAR11",   20, 122.57, 39);
-
-
-INSERT INTO ativo (codigo_carteira, codigo_ticker, quantidade, pm, id_ativo)
-VALUES
-(1, "BBAS3", 303, 29.91, 40),
-(1, "BBSE3", 310, 25.29, 41),
+(2, "TGAR11",   20, 122.57, 39),
+(1, "BBAS3" , 303, 29.91, 40),
+(1, "BBSE3" , 310, 25.29, 41),
 (1, "EGIE3", 200, 39.04, 42),
 (1, "IRBR3", 610, 8.06, 43),
 (1, "ITSA4", 1155, 9.18, 44),
@@ -120,9 +131,13 @@ VALUES
 (2, "MSFT34", 59, 49.31 , 70),
 (2, "VERZ34", 107, 54.51, 71);
 
+UPDATE ticker
+SET atual = 115.00
+WHERE ticker = "BARI11";
 
-SELECT * FROM Ativo;
 
-SELECT sum(quantidade * pm) FROM Ativo;
+SELECT * FROM ativo;
 
-SELECT sum(a.quantidade * t.atual) FROM Ativo a JOIN Ticker t ON a.ticker = t.ticker;
+DESCRIBE ativo;
+
+SELECT * FROM ticker;
