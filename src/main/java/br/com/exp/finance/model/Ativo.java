@@ -50,15 +50,12 @@ public class Ativo {
     private Carteira codigoCarteira;
 
     @ManyToOne
-    @JoinColumn(name = "codigo_ticker")
-    private Ticker codigoTicker;
+       @JoinColumn(name = "ticker", referencedColumnName = "ticker")
+    private Ticker ativoTicker;
 
     @Column(nullable = false)
     private int quantidade;
 
     @Column(nullable = false)
     private BigDecimal pm;
-
-    @Column
-    private BigDecimal atual;
 }
