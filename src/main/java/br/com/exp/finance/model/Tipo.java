@@ -33,7 +33,7 @@ public class Tipo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idTipo;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10)
     private String tipo;
 
     /**

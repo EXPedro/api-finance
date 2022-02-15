@@ -31,9 +31,10 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class Ticker {
     @Id
+    @Column(length = 7)
     private String ticker;
 
-    @Column
+    @Column(precision = 10, scale = 2)
     private BigDecimal atual;
 
 //    @OneToMany(mappedBy = "ativoTicker", cascade = CascadeType.ALL)

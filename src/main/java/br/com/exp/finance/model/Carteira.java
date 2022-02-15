@@ -27,7 +27,7 @@ public class Carteira {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCarteira;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 3)
     private String carteira;
 
     /**

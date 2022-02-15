@@ -56,6 +56,6 @@ public class Ativo {
     @Column(nullable = false)
     private int quantidade;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal pm;
 }
