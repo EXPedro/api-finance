@@ -1,10 +1,13 @@
 package br.com.exp.finance.controller;
 
-import br.com.exp.finance.model.Ativo;
 import br.com.exp.finance.model.dto.AtivoDTO;
 import br.com.exp.finance.service.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

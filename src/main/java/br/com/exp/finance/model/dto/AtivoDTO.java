@@ -1,13 +1,10 @@
 package br.com.exp.finance.model.dto;
 
-import br.com.exp.finance.model.Ativo;
 import br.com.exp.finance.model.Carteira;
 import br.com.exp.finance.model.Ticker;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import java.math.BigDecimal;
 
 @Getter
