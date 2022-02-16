@@ -1,6 +1,7 @@
 package br.com.exp.finance.controller;
 
 import br.com.exp.finance.model.Ativo;
+import br.com.exp.finance.model.dto.AtivoDTO;
 import br.com.exp.finance.service.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class AtivoController {
      * @return List<Ativo>
      */
     @GetMapping("/ativos")
-    public List<Ativo> getAtivos(){
+    public List<AtivoDTO> getAtivos(){
         return ativoService.findAll();
     }
 

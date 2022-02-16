@@ -1,6 +1,8 @@
 package br.com.exp.finance.service;
 
+import br.com.exp.finance.mapper.AtivoMapper;
 import br.com.exp.finance.model.Ativo;
+import br.com.exp.finance.model.dto.AtivoDTO;
 import br.com.exp.finance.repository.AtivoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,8 @@ public class AtivoService {
     //chama repositório
     AtivoRepository ativoRepository;
 
+    AtivoMapper ativoMapper;
+
     private EntityManager em;
 
     //"magia" spring (injeção do repositório no serviço)
@@ -43,10 +47,11 @@ public class AtivoService {
 
     /**
      * Método CRUD (Read): GET. Retorna a lista de Ativos do banco de dados.
-     * @return {@link List<Ativo>}
+     * @return {@link List<AtivoDTO>}
      */
-    public List<Ativo> findAll(){
-        return ativoRepository.findAll();
+    public List<AtivoDTO> findAll(){
+        List<Ativo> listaAtivos = ativoRepository.findAll();
+        return AtivoMapper.listAtivosToDTO(listaAtivos);
     }
 
     /**
