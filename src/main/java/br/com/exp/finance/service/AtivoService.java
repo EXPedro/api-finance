@@ -1,5 +1,6 @@
 package br.com.exp.finance.service;
 
+import br.com.exp.finance.exception.IdNotFoundException;
 import br.com.exp.finance.mapper.AtivoMapper;
 import br.com.exp.finance.model.Ativo;
 import br.com.exp.finance.model.dto.AtivoDTO;
@@ -41,9 +42,7 @@ public class AtivoService {
      */
     public AtivoDTO saveAtivo(AtivoDTO ativoDTO){
         Ativo ativoToSave = AtivoMapper.dtoToAtivo(ativoDTO);
-
             ativoRepository.save(ativoToSave);
-
         return AtivoMapper.ativoToDTO(ativoToSave);
     }
 
@@ -58,27 +57,40 @@ public class AtivoService {
 
     /**
      * Método CRUD (Read): GET byId. Retorna um Ativo pela sua Id.
-     * @param codigo Ativo id
-     * @return {@link Optional<Ativo>}
+     * @param codigo Long
+     * @return {@link AtivoDTO}
      */
-    public Optional<Ativo> findById(Long codigo){
-        return ativoRepository.findById(codigo);
+    public AtivoDTO findById(Long codigo) throws IdNotFoundException{
+        Ativo ativo =  verifyIfExists(codigo);
+        return AtivoMapper.ativoToDTO(ativo);
     }
 
     /**
      * Método CRUD (Update): PUT. Atualiza um Ativo, alterando o registro anterior.
-     * @param ativo Ativo
+     * @param ativoDTO AtivoDTO
      * @return {@link Ativo}
      */
-    public Ativo updateAtivos(Ativo ativo){
-        return ativoRepository.save(ativo);
+    public AtivoDTO updateAtivos(AtivoDTO ativoDTO){
+        Ativo ativoToSave = AtivoMapper.dtoToAtivo(ativoDTO);
+            ativoRepository.save(ativoToSave);
+        return AtivoMapper.ativoToDTO(ativoToSave);
     }
 
     /**
      * Método CRUD (Delete): DELETE byID. Deleta um Ativo de acordo com a Id desejada.
      * @param codigo Ativo id
      */
-    public void deleteAtivos(Long codigo){
+    public void deleteAtivos(Long codigo) throws IdNotFoundException{
+        Ativo ativo = verifyIfExists(codigo);
         ativoRepository.deleteById(codigo);
+    }
+
+    /**
+     * Método privado para verificar se existe o id
+     * @param id Long
+     * @return {@link Ativo}
+     */
+    private Ativo verifyIfExists(Long id) throws IdNotFoundException {
+        return ativoRepository.findById(id).orElseThrow(()-> new IdNotFoundException(id));
     }
 }
