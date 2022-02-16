@@ -7,6 +7,7 @@ import br.com.exp.finance.model.dto.AtivoDTO;
 import br.com.exp.finance.repository.AtivoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -40,6 +41,7 @@ public class AtivoService {
      * @param ativoDTO AtivoDTO
      * @return {@link AtivoDTO}
      */
+    @Transactional
     public AtivoDTO saveAtivo(AtivoDTO ativoDTO){
         Ativo ativoToSave = AtivoMapper.dtoToAtivo(ativoDTO);
             ativoRepository.save(ativoToSave);
@@ -50,6 +52,7 @@ public class AtivoService {
      * Método CRUD (Read): GET. Retorna a lista de Ativos do banco de dados.
      * @return {@link List<AtivoDTO>}
      */
+    @Transactional
     public List<AtivoDTO> findAll(){
         List<Ativo> listaAtivos = ativoRepository.findAll();
         return AtivoMapper.listAtivosToDTO(listaAtivos);
@@ -60,6 +63,7 @@ public class AtivoService {
      * @param codigo Long
      * @return {@link AtivoDTO}
      */
+    @Transactional
     public AtivoDTO findById(Long codigo) throws IdNotFoundException{
         Ativo ativo =  verifyIfExists(codigo);
         return AtivoMapper.ativoToDTO(ativo);
@@ -70,6 +74,7 @@ public class AtivoService {
      * @param ativoDTO AtivoDTO
      * @return {@link Ativo}
      */
+    @Transactional
     public AtivoDTO updateAtivos(AtivoDTO ativoDTO){
         Ativo ativoToSave = AtivoMapper.dtoToAtivo(ativoDTO);
             ativoRepository.save(ativoToSave);
@@ -80,6 +85,7 @@ public class AtivoService {
      * Método CRUD (Delete): DELETE byID. Deleta um Ativo de acordo com a Id desejada.
      * @param codigo Ativo id
      */
+    @Transactional
     public void deleteAtivos(Long codigo) throws IdNotFoundException{
         Ativo ativo = verifyIfExists(codigo);
         ativoRepository.deleteById(codigo);
@@ -90,6 +96,7 @@ public class AtivoService {
      * @param id Long
      * @return {@link Ativo}
      */
+    @Transactional
     private Ativo verifyIfExists(Long id) throws IdNotFoundException {
         return ativoRepository.findById(id).orElseThrow(()-> new IdNotFoundException(id));
     }
