@@ -26,8 +26,6 @@ public class AtivoService {
     //chama repositório
     AtivoRepository ativoRepository;
 
-    AtivoMapper ativoMapper;
-
     private EntityManager em;
 
     //"magia" spring (injeção do repositório no serviço)
@@ -38,11 +36,15 @@ public class AtivoService {
 
     /**
      * Método CRUD (Create): POST. Cria um novo Ativo
-     * @param ativo Ativo
-     * @return {@link Ativo}
+     * @param ativoDTO AtivoDTO
+     * @return {@link AtivoDTO}
      */
-    public Ativo saveAtivo(Ativo ativo){
-        return ativoRepository.save(ativo);
+    public AtivoDTO saveAtivo(AtivoDTO ativoDTO){
+        Ativo ativoToSave = AtivoMapper.dtoToAtivo(ativoDTO);
+
+            ativoRepository.save(ativoToSave);
+
+        return AtivoMapper.ativoToDTO(ativoToSave);
     }
 
     /**

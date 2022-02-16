@@ -24,16 +24,16 @@ public class AtivoController {
 
     /**
      * Mapeamento POST para criação de um Ativo.
-     * @param ativo Ativo
+     * @param ativoDTO AtivoDTO
      */
     @PostMapping("/ativos")
-    public Ativo createAtivo(@RequestBody Ativo ativo){
-        return ativoService.saveAtivo(ativo);
+    public AtivoDTO createAtivo(@RequestBody AtivoDTO ativoDTO){
+        return ativoService.saveAtivo(ativoDTO);
     }
 
     /**
      * Mapeamento GET para listar Ativos.
-     * @return List<Ativo>
+     * @return List<AtivoDTO>
      */
     @GetMapping("/ativos")
     public List<AtivoDTO> getAtivos(){

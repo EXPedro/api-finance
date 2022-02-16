@@ -34,11 +34,11 @@ public class Ativo {
     private Long idAtivo;
 
     @ManyToOne
-    @JoinColumn(name = "codigo_carteira")
+        @JoinColumn(name = "codigo_carteira")
     private Carteira codigoCarteira;
 
     @ManyToOne
-       @JoinColumn(name = "ticker", referencedColumnName = "ticker")
+        @JoinColumn(name = "ticker", referencedColumnName = "ticker")
     private Ticker ativoTicker;
 
     @Column(nullable = false)
