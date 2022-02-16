@@ -10,10 +10,12 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Service
- * Implements CRUD operations on 'ativoRepository'
+ * Serviço que implementa as operações CRUD usando o repositório 'ativoRepository'.
+ * <p>- Métodos:
+ * POST: Ativo saveAtivo(Ativo ativo), GET: List<Ativo> findAll(), Optional<Ativo> findById(Long codigo),
+ * PUT: Ativo updateAtivos(Ativo ativo), DELETE: void deleteAtivos(Long codigo).
  * @author eXP
- * @version 0.1
+ * @version 0.3
  */
 
 @Service
@@ -24,16 +26,14 @@ public class AtivoService {
 
     private EntityManager em;
 
-    //"magia" spring
+    //"magia" spring (injeção do repositório no serviço)
     @Autowired
     public AtivoService(AtivoRepository ativoRepository){
         this.ativoRepository = ativoRepository;
     }
 
     /**
-     * Create method of CRUD: POST
-     * <p>
-     * save Ativo
+     * Método CRUD (Create): POST. Cria um novo Ativo
      * @param ativo Ativo
      * @return {@link Ativo}
      */
@@ -42,9 +42,7 @@ public class AtivoService {
     }
 
     /**
-     * Read all method of CRUD: GET
-     * <p>
-     * get Ativo
+     * Método CRUD (Read): GET. Retorna a lista de Ativos do banco de dados.
      * @return {@link List<Ativo>}
      */
     public List<Ativo> findAll(){
@@ -52,9 +50,7 @@ public class AtivoService {
     }
 
     /**
-     * Read method of CRUD: GET byId
-     * <p>
-     * GET Ativo byId
+     * Método CRUD (Read): GET byId. Retorna um Ativo pela sua Id.
      * @param codigo Ativo id
      * @return {@link Optional<Ativo>}
      */
@@ -63,9 +59,7 @@ public class AtivoService {
     }
 
     /**
-     * Updade method of CRUD: PUT
-     * <p>
-     * PUT in Ativo
+     * Método CRUD (Update): PUT. Atualiza um Ativo, alterando o registro anterior.
      * @param ativo Ativo
      * @return {@link Ativo}
      */
@@ -74,9 +68,7 @@ public class AtivoService {
     }
 
     /**
-     * Delete method of CRUD: DELETE
-     * <p>
-     * DELETE Ativo byId
+     * Método CRUD (Delete): DELETE byID. Deleta um Ativo de acordo com a Id desejada.
      * @param codigo Ativo id
      */
     public void deleteAtivos(Long codigo){
