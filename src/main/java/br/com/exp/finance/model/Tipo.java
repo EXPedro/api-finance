@@ -13,13 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Tipo choose between 1 of the 4 types
- * that an ativo can be
- * <p>
- *     <b>tipo</b>
- *     String
+ * Entidade Tipo. Permite selecionar entre os tipos de Ativo (Ação, BDR, ETF, FII).
+ * <p>- Propriedades: PK Long idTipo, String tipo.
+ * <p>- Construtor: NoArgs, Arg: Long id.
  * @author eXP
- * @version 0.2
+ * @version 0.3
  */
 
 @Entity
@@ -37,11 +35,9 @@ public class Tipo {
     private String tipo;
 
     /**
-     * Constructor with parameter id
-     * <p>
-     * Necessary for Ticker creation
-     * <p>
-     * One Tipo for each Ticker
+     * Construtor com o parâmetro id.
+     * Necessário para a criação do Ticker.
+     * Um Tipo para cada Ticker.
      * @param id idTipo
      */
     public Tipo(Long id){

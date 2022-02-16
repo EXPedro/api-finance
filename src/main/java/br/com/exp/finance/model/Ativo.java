@@ -15,24 +15,12 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 /**
- * Ativo
- * <p>
- *     <b>cod_carteira</b>
- *     Carteira, foreign key
- * <p>
- *     <b>ticker</b>
- *     Ticker, foreign key
- * <p>
- *     <b>quantidade</b>
- *     Quantity of stocks/ticker
- * <p>
- *     <b>pm</b>
- *     Average price
- * <p>
- *     <b>atual</b>
- *     Current price, nullable
+ * Entidade Ativo. Permite registrar cada Ativo pertencente à determinada carteira.
+ * <p>- Propriedades: PK Long idAtivo, FK Carteira cod_carteira, FK Ticker ativoTicker,
+ * int quantidade, BigDecimal pm.
+ * <p>- Construtor: NoArgs.
  * @author eXP
- * @version 0.2
+ * @version 0.3
  */
 
 @Entity

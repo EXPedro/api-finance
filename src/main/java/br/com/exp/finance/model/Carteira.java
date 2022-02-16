@@ -8,13 +8,11 @@ import lombok.Setter;
 import javax.persistence.*;
 
 /**
- * Carteira
- * <p>
- *     <b>carteira</b>
- *     String
- * <p>
+ * Entidade Carteira. Permite definir um código para cada carteira.
+ * <p>- Propriedades: PK Long idCarteira, String carteira.
+ * <p>- Construtor: NoArgs, Arg: Long id.
  * @author eXP
- * @version 0.2
+ * @version 0.3
  */
 
 @Entity
@@ -31,11 +29,9 @@ public class Carteira {
     private String carteira;
 
     /**
-     * Constructor with parameter id
-     * <p>
-     * Necessary for Ativo creation
-     * <p>
-     * One Carteira for each Ativo
+     * Construtor com o parâmetro id.
+     * Necessário para criação da Carteira.
+     * Uma Carteira para cada Ativo.
      * @param id idCarteira
      */
     public Carteira(Long id){

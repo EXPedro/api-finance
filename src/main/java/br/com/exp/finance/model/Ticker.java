@@ -13,15 +13,11 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 /**
- * Ticker
- * <p>
- *     <b>ticker:</b>
- *     String, primary key
- * <p>
- *     <b>tipo:</b>
- *     Tipo, type of ticker
+ * Entidade Ticker. Permite criar cada Ticker com seu símbolo e preço atual.
+ * <p>- Propriedades: PK String ticker, BigDecimal atual, Tipo codigoTipo.
+ * <p>- Construtor: NoArgs, Arg: String ticker.
  * @author eXP
- * @version 0.2
+ * @version 0.3
  */
 
 @Entity
@@ -37,6 +33,7 @@ public class Ticker {
     @Column(precision = 10, scale = 2)
     private BigDecimal atual;
 
+//    Para fazer a relação bidirecional:
 //    @OneToMany(mappedBy = "ativoTicker", cascade = CascadeType.ALL)
 //    private List<Ativo> listAtual;
 
@@ -45,9 +42,9 @@ public class Ticker {
     private Tipo codigoTipo;
 
     /**
-     * Constructor with parameter ticker.
-     * Necessary for 'Ativo' creation.
-     * One Ticker for each 'Ativo'.
+     * Construtor com o parâmetro ticker.
+     * Necessário para a criação do Ticker.
+     * Um Ticker para cada Ativo.
      * @param ticker String
      */
     public Ticker (String ticker){
