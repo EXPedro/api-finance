@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Controller class
- * of endpoint '/api/v1/'
- * '/tickers'
+ * Classe TickerController, controlador REST que controla operações CRUD no endpoint '/api/v1/tickers'.
  * @author eXP
- * @version 0.1
+ * @version 0.3
  */
 
 @RestController
@@ -28,9 +26,7 @@ public class TickerController {
     TickerService tickerService;
 
     /**
-     * POST mapping
-     * <p>
-     * Creation of Ticker
+     * Mapeamento POST para a criação de um Ticker
      * @param ticker Ticker
      */
     @PostMapping("/tickers")
@@ -39,7 +35,7 @@ public class TickerController {
     }
 
     /**
-     * GET mapping
+     * Mapeamento GET para listar Tickers.
      * @return List<Ticker>
      */
     @GetMapping("/tickers")

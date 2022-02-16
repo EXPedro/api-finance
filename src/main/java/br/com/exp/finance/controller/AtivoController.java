@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Controller class
- * of endpoint '/api/v1/'
- * '/ativos'
+ * Classe AtivoController, controlador REST que controla operações CRUD no endpoint '/api/v1/ativos'.
  * @author eXP
- * @version 0.1
+ * @version 0.3
  */
 
 @RestController
@@ -24,9 +22,7 @@ public class AtivoController {
     AtivoService ativoService;
 
     /**
-     * POST mapping
-     * <p>
-     * Creation of Ativo
+     * Mapeamento POST para criação de um Ativo.
      * @param ativo Ativo
      */
     @PostMapping("/ativos")
@@ -35,7 +31,7 @@ public class AtivoController {
     }
 
     /**
-     * GET mapping
+     * Mapeamento GET para listar Ativos.
      * @return List<Ativo>
      */
     @GetMapping("/ativos")
