@@ -1,6 +1,5 @@
 package br.com.exp.finance.service;
 
-import br.com.exp.finance.model.Ativo;
 import br.com.exp.finance.model.Ticker;
 import br.com.exp.finance.repository.TickerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
