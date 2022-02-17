@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,6 +79,7 @@ public class AtivoService {
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public List<AtivoDTO> total(){
         List<Ativo> listaTotal =  ativoRepository.showTotalInvestido();
+        System.out.println("****" + listaTotal);
         return AtivoMapper.listAtivosToDTO(listaTotal);
     }
 
