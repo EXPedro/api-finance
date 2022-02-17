@@ -21,4 +21,8 @@ public class AtivoMapper {
     public static List<AtivoDTO> listAtivosToDTO(List<Ativo> listaAtivo) {
         return listaAtivo.stream().map(AtivoMapper::ativoToDTO).collect(Collectors.toList());
     }
+
+    public static List<Ativo> listDTOToAtivos(List<AtivoDTO> listaAtivoDTO) {
+        return listaAtivoDTO.stream().map(AtivoMapper::dtoToAtivo).collect(Collectors.toList());
+    }
 }
