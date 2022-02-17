@@ -10,9 +10,9 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class AtivoDTO {
-    private Long idAtivo;
-    private Carteira codigoCarteira;
+    private static Long idAtivo;
     private Ticker ativoTicker;
+    private Carteira codigoCarteira;
     private int quantidade;
     private BigDecimal pm;
 
