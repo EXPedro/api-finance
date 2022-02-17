@@ -19,8 +19,8 @@ public class AtivoDTO {
     public AtivoDTO (){}
 
     public AtivoDTO (Long codCarteira, String strTicker, int intQuantidade, BigDecimal bdPm){
-        this.codigoCarteira = new Carteira(codCarteira);
         this.ativoTicker = new Ticker(strTicker);
+        this.codigoCarteira = new Carteira(codCarteira);
         this.quantidade = intQuantidade;
         this.pm = bdPm;
     }
