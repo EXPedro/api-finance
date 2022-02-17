@@ -72,6 +72,16 @@ public class AtivoService {
     }
 
     /**
+     * Método CRUD (Read): GET para etorna uma lista com o total investido por Ativo.
+     * @return {@link List<AtivoDTO>}
+     */
+    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    public List<AtivoDTO> total(){
+        List<Ativo> listaTotal =  ativoRepository.showTotalInvestido();
+        return AtivoMapper.listAtivosToDTO(listaTotal);
+    }
+
+    /**
      * Método CRUD (Read): GET byCodigoCarteira. Retorna uma lista de Ativos
      * com o mesmo codigoCarteira.
      * @param codigoCarteira Long

@@ -62,4 +62,13 @@ public class AtivoController {
     public List<AtivoDTO> getAtivosByCarteira(@PathVariable Long id) throws IdNotFoundException {
         return ativoService.findByCarteira(id);
     }
+
+    /**
+     * Mapeamento GET para listar o total investido em cada Ativo.
+     * @return List<AtivoDTO>
+     */
+    @GetMapping("/ativos/total")
+    public List<AtivoDTO> getTotalByAtivo(){
+        return ativoService.total();
+    }
 }
