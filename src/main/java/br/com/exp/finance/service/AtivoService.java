@@ -72,9 +72,10 @@ public class AtivoService {
     }
 
     /**
-     * Método CRUD (Read): GET byId. Retorna um Ativo pela sua Id.
-     * @param codigoCarteira Carteira
-     * @return {@link AtivoDTO}
+     * Método CRUD (Read): GET byCodigoCarteira. Retorna uma lista de Ativos
+     * com o mesmo codigoCarteira.
+     * @param codigoCarteira Long
+     * @return {@link List<AtivoDTO>}
      */
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public List<AtivoDTO> findByCarteira(Long codigoCarteira) throws IdNotFoundException{
