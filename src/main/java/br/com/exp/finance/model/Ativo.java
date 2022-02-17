@@ -3,6 +3,8 @@ package br.com.exp.finance.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,6 +32,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class Ativo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -50,10 +53,13 @@ public class Ativo {
     private BigDecimal pm;
 
     @Transient
-    private BigDecimal total_investido;
+    private String ticker;
 
-    @PostLoad
-    private void onLoad() {
-        this.total_investido = pm.multiply(new BigDecimal(quantidade));
+    @Transient
+    private BigDecimal total;
+
+    public Ativo (Ticker ticker, BigDecimal total){
+        this.ticker = ticker.getTicker();
+        this.total = total;
     }
 }

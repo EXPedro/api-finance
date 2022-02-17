@@ -3,7 +3,6 @@ package br.com.exp.finance.service;
 import br.com.exp.finance.exception.IdNotFoundException;
 import br.com.exp.finance.mapper.AtivoMapper;
 import br.com.exp.finance.model.Ativo;
-import br.com.exp.finance.model.Carteira;
 import br.com.exp.finance.model.dto.AtivoDTO;
 import br.com.exp.finance.repository.AtivoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Serviço que implementa as operações CRUD usando o repositório 'ativoRepository'.
@@ -80,6 +77,7 @@ public class AtivoService {
     public List<AtivoDTO> total(){
         List<Ativo> listaTotal =  ativoRepository.showTotalInvestido();
         System.out.println("****" + listaTotal);
+//        return listaTotal;
         return AtivoMapper.listAtivosToDTO(listaTotal);
     }
 

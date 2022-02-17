@@ -5,6 +5,7 @@ import br.com.exp.finance.model.Ticker;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Transient;
 import java.math.BigDecimal;
 
 @Getter
@@ -15,6 +16,17 @@ public class AtivoDTO {
     private Carteira codigoCarteira;
     private int quantidade;
     private BigDecimal pm;
+
+    @Transient
+    private String ticker;
+
+    @Transient
+    private BigDecimal total;
+
+    public AtivoDTO (Ticker ticker, BigDecimal total){
+        this.ticker = ticker.getTicker();
+        this.total = total;
+    }
 
     public AtivoDTO (){}
 
