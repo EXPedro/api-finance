@@ -1,9 +1,11 @@
 package br.com.exp.finance.controller;
 
+import br.com.exp.finance.exception.IdNotFoundException;
 import br.com.exp.finance.model.dto.AtivoDTO;
 import br.com.exp.finance.service.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,4 +45,12 @@ public class AtivoController {
         return ativoService.findAll();
     }
 
+    /**
+     * Mapeamento GET para listar Ativos pela id.
+     * @return List<AtivoDTO>
+     */
+    @GetMapping("/ativos/{id}")
+    public AtivoDTO getAtivo(@PathVariable Long id) throws IdNotFoundException {
+        return ativoService.findById(id);
+    }
 }
