@@ -11,7 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PostLoad;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.math.BigDecimal;
 
 /**
@@ -46,4 +48,12 @@ public class Ativo {
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal pm;
+
+    @Transient
+    private BigDecimal total_investido;
+
+    @PostLoad
+    private void onLoad() {
+        this.total_investido = pm.multiply(new BigDecimal(quantidade));
+    }
 }
