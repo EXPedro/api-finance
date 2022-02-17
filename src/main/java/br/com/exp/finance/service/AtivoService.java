@@ -3,6 +3,7 @@ package br.com.exp.finance.service;
 import br.com.exp.finance.exception.IdNotFoundException;
 import br.com.exp.finance.mapper.AtivoMapper;
 import br.com.exp.finance.model.Ativo;
+import br.com.exp.finance.model.Carteira;
 import br.com.exp.finance.model.dto.AtivoDTO;
 import br.com.exp.finance.repository.AtivoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,17 @@ public class AtivoService {
     public AtivoDTO findById(Long codigo) throws IdNotFoundException{
         Ativo ativo =  verifyIfExists(codigo);
         return AtivoMapper.ativoToDTO(ativo);
+    }
+
+    /**
+     * Método CRUD (Read): GET byId. Retorna um Ativo pela sua Id.
+     * @param codigoCarteira Carteira
+     * @return {@link AtivoDTO}
+     */
+    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    public List<AtivoDTO> findByCarteira(Long codigoCarteira) throws IdNotFoundException{
+        List<Ativo> listaAtivo =  ativoRepository.findByCodigoCarteira(codigoCarteira);
+        return AtivoMapper.listAtivosToDTO(listaAtivo);
     }
 
     /**

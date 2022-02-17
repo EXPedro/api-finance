@@ -47,10 +47,19 @@ public class AtivoController {
 
     /**
      * Mapeamento GET para listar Ativos pela id.
-     * @return List<AtivoDTO>
+     * @return AtivoDTO
      */
     @GetMapping("/ativos/{id}")
     public AtivoDTO getAtivo(@PathVariable Long id) throws IdNotFoundException {
         return ativoService.findById(id);
+    }
+
+    /**
+     * Mapeamento GET para listar Ativos pela id.
+     * @return List<AtivoDTO>
+     */
+    @GetMapping("/ativos/carteira/{id}")
+    public List<AtivoDTO> getAtivosByCarteira(@PathVariable Long id) throws IdNotFoundException {
+        return ativoService.findByCarteira(id);
     }
 }

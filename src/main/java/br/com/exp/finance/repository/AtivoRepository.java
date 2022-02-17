@@ -1,7 +1,12 @@
 package br.com.exp.finance.repository;
 
 import br.com.exp.finance.model.Ativo;
+import br.com.exp.finance.model.Carteira;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 /**
  * Interface AtivoRepository. Repositório de Ativos que extende JpaRepository
@@ -11,4 +16,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 public interface AtivoRepository extends JpaRepository<Ativo, Long>{
+    @Query(value= "SELECT * FROM ativo a WHERE a.codigo_carteira= ?1", nativeQuery = true)
+    List<Ativo> findByCodigoCarteira(Long codigoCarteira);
 }
