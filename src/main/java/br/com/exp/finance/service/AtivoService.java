@@ -74,10 +74,9 @@ public class AtivoService {
      * @return {@link List<AtivoDTO>}
      */
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-    public List<AtivoDTO> total(){
-        List<Ativo> listaTotal =  ativoRepository.showTotalInvestido();
+    public List<AtivoDTO> totalInvestido(){
+        List<Ativo> listaTotal =  ativoRepository.findTotalInvestido();
         System.out.println("****" + listaTotal);
-//        return listaTotal;
 
         return AtivoMapper.listAtivosToDTO(listaTotal);
     }
