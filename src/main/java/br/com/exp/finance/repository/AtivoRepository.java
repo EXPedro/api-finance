@@ -18,5 +18,5 @@ public interface AtivoRepository extends JpaRepository<Ativo, Long>{
     List<Ativo> findByCodigoCarteira(Long codigoCarteira);
 
     @Query("select new br.com.exp.finance.model.Ativo(a.ativoTicker, (a.quantidade * a.pm)) from Ativo a")
-    List<Ativo> showTotalInvestido();
+    List<Ativo> findTotalInvestido();
 }
