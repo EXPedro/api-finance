@@ -2,6 +2,7 @@ package br.com.exp.finance.controller;
 
 import br.com.exp.finance.exception.IdNotFoundException;
 import br.com.exp.finance.model.dto.AtivoDTO;
+import br.com.exp.finance.model.dto.TotalPorAtivoDTO;
 import br.com.exp.finance.service.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Classe AtivoController, controlador REST que controla operações CRUD no endpoint '/api/v1/ativos'.
@@ -68,7 +71,11 @@ public class AtivoController {
      * @return List<AtivoDTO>
      */
     @GetMapping("/ativos/total")
-    public List<AtivoDTO> getTotalByAtivo(){
-        return ativoService.total();
+    public List<TotalPorAtivoDTO> getTotalByAtivo(){
+        List<AtivoDTO> listaDTO = ativoService.total();
+        List<TotalPorAtivoDTO> listaTotalPorAtivo =
+        listaDTO.stream().map(TotalPorAtivoDTO::new).collect(Collectors.toList());
+        System.out.println("****" + listaDTO.size());
+        return listaTotalPorAtivo;
     }
 }

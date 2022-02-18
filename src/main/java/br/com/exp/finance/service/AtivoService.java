@@ -78,6 +78,7 @@ public class AtivoService {
         List<Ativo> listaTotal =  ativoRepository.showTotalInvestido();
         System.out.println("****" + listaTotal);
 //        return listaTotal;
+
         return AtivoMapper.listAtivosToDTO(listaTotal);
     }
 
