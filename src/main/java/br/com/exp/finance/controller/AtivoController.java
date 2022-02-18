@@ -72,7 +72,7 @@ public class AtivoController {
      */
     @GetMapping("/ativos/total")
     public List<TotalPorAtivoDTO> getTotalByAtivo(){
-        List<AtivoDTO> listaDTO = ativoService.total();
+        List<AtivoDTO> listaDTO = ativoService.totalInvestido();
         List<TotalPorAtivoDTO> listaTotalPorAtivo =
         listaDTO.stream().map(TotalPorAtivoDTO::new).collect(Collectors.toList());
         System.out.println("****" + listaDTO.size());
