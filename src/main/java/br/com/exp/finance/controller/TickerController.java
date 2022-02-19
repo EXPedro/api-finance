@@ -1,6 +1,8 @@
 package br.com.exp.finance.controller;
 
 import br.com.exp.finance.model.Ticker;
+import br.com.exp.finance.model.dto.TickerDTO;
+import br.com.exp.finance.model.dto.response.TickerResponse;
 import br.com.exp.finance.service.TickerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Classe TickerController, controlador REST que controla operações CRUD no endpoint '/api/v1/tickers'.
@@ -30,8 +33,8 @@ public class TickerController {
      * @param ticker Ticker
      */
     @PostMapping("/tickers")
-    public Ticker createTicker(@RequestBody Ticker ticker){
-        return tickerService.saveTicker(ticker);
+    public TickerDTO createTicker(@RequestBody TickerDTO tickerDTO){
+        return tickerService.saveTicker(tickerDTO);
     }
 
     /**
@@ -39,8 +42,10 @@ public class TickerController {
      * @return List<Ticker>
      */
     @GetMapping("/tickers")
-    public List<Ticker> getTickers(){
-        return tickerService.findAll();
+    public List<TickerResponse> getTickers(){
+        List<TickerDTO> lT = tickerService.findAll();
+
+        return lT.stream().map(TickerResponse::new).collect(Collectors.toList());
     }
 }
 
