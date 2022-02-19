@@ -76,9 +76,6 @@ public class AtivoService {
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public List<AtivoDTO> listaTotalDTO(){
         List<Ativo> listaTotal =  ativoRepository.findAll();
-        //System.out.println("****" + listaTotal);
-
-
         return AtivoMapper.listAtivosToDTO(listaTotal);
     }
 
@@ -89,7 +86,7 @@ public class AtivoService {
      * @return {@link List<AtivoDTO>}
      */
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-    public List<AtivoDTO> findByCarteira(Long codigoCarteira) throws IdNotFoundException{
+    public List<AtivoDTO> findByCarteira(Long codigoCarteira) {
         List<Ativo> listaAtivo =  ativoRepository.findByCodigoCarteira(codigoCarteira);
         return AtivoMapper.listAtivosToDTO(listaAtivo);
     }
