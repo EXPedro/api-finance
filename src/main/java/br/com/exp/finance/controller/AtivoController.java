@@ -54,8 +54,9 @@ public class AtivoController {
      * @return AtivoDTO
      */
     @GetMapping("/ativos/{id}")
-    public AtivoDTO getAtivo(@PathVariable Long id) throws IdNotFoundException {
-        return ativoService.findById(id);
+    public AtivoResponse getAtivo(@PathVariable Long id) throws IdNotFoundException {
+        AtivoDTO ativoPorId = ativoService.findById(id);
+        return new AtivoResponse(ativoPorId);
     }
 
     /**
@@ -63,8 +64,9 @@ public class AtivoController {
      * @return List<AtivoDTO>
      */
     @GetMapping("/ativos/carteira/{id}")
-    public List<AtivoDTO> getAtivosByCarteira(@PathVariable Long id){
-        return ativoService.findByCarteira(id);
+    public List<AtivoResponse> getAtivosByCarteira(@PathVariable Long id){
+        List<AtivoDTO> ativosPorCarteira = ativoService.findByCarteira(id);
+        return ativosPorCarteira.stream().map(AtivoResponse::new).collect(Collectors.toList());
     }
 
     /**

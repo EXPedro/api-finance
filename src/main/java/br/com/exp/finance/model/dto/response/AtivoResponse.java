@@ -13,7 +13,7 @@ import java.math.RoundingMode;
 @NoArgsConstructor
 public class AtivoResponse {
 
-    private String ativoTicker;
+    private String ticker;
     private String tipo;
     private String codigoCarteira;
     private int quantidade;
@@ -22,7 +22,7 @@ public class AtivoResponse {
     private BigDecimal variacao;
 
     public AtivoResponse(AtivoDTO ativoDTO){
-        this.ativoTicker = ativoDTO.getAtivoTicker().getTicker();
+        this.ticker = ativoDTO.getAtivoTicker().getTicker();
         this.tipo = ativoDTO.getAtivoTicker().getCodigoTipo().getTipo();
         this.codigoCarteira = ativoDTO.getCodigoCarteira().getCarteira();
         this.quantidade = ativoDTO.getQuantidade();
