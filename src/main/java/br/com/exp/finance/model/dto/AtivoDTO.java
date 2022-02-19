@@ -17,17 +17,6 @@ public class AtivoDTO {
     private int quantidade;
     private BigDecimal pm;
 
-    @Transient
-    private String ticker;
-
-    @Transient
-    private BigDecimal total;
-
-    public AtivoDTO (Ticker ticker, BigDecimal total){
-        this.ticker = ticker.getTicker();
-        this.total = total;
-    }
-
     public AtivoDTO (){}
 
     public AtivoDTO (Long codCarteira, String strTicker, int intQuantidade, BigDecimal bdPm){

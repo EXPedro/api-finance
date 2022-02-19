@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Formula;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,9 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PostLoad;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import java.math.BigDecimal;
 
 /**
@@ -51,15 +48,4 @@ public class Ativo {
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal pm;
-
-    @Transient
-    private String ticker;
-
-    @Transient
-    private BigDecimal total;
-
-    public Ativo (Ticker ticker, BigDecimal total){
-        this.ticker = ticker.getTicker();
-        this.total = total;
-    }
 }

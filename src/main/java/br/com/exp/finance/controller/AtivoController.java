@@ -2,7 +2,6 @@ package br.com.exp.finance.controller;
 
 import br.com.exp.finance.exception.IdNotFoundException;
 import br.com.exp.finance.model.dto.AtivoDTO;
-import br.com.exp.finance.model.dto.TotalPorAtivoDTO;
 import br.com.exp.finance.service.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,14 +66,11 @@ public class AtivoController {
 
     /**
      * Mapeamento GET para listar o total investido em cada Ativo.
-     * @return List<AtivoDTO>
+     * @return List<ValorTotalController>
      */
     @GetMapping("/ativos/total")
-    public List<TotalPorAtivoDTO> getTotalByAtivo(){
-        List<AtivoDTO> listaDTO = ativoService.totalInvestido();
-        List<TotalPorAtivoDTO> listaTotalPorAtivo =
-        listaDTO.stream().map(TotalPorAtivoDTO::new).collect(Collectors.toList());
-        System.out.println("****" + listaDTO.size());
-        return listaTotalPorAtivo;
+    public List<ValorTotalController> getTotalByAtivo(){
+        List<AtivoDTO> listaDTO = ativoService.listaTotalDTO();
+        return listaDTO.stream().map(ValorTotalController::new).collect(Collectors.toList());
     }
 }
