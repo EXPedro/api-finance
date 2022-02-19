@@ -1,4 +1,4 @@
-package br.com.exp.finance.model.dto;
+package br.com.exp.finance.model.dto.response;
 
 import br.com.exp.finance.model.Ticker;
 import br.com.exp.finance.model.dto.AtivoDTO;
@@ -12,7 +12,7 @@ import java.math.RoundingMode;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ValorTotalDTO {
+public class ValorTotalResponse {
     private String ticker;
     private String carteira;
     private int quantidade;
@@ -22,7 +22,7 @@ public class ValorTotalDTO {
     private BigDecimal valorAtual;
     private BigDecimal variacao;
 
-    public ValorTotalDTO(AtivoDTO ativoDTO){
+    public ValorTotalResponse(AtivoDTO ativoDTO){
         Ticker tickerDTO = ativoDTO.getAtivoTicker();
 
         this.ticker = tickerDTO.getTicker();
