@@ -2,6 +2,7 @@ package br.com.exp.finance.controller;
 
 import br.com.exp.finance.exception.IdNotFoundException;
 import br.com.exp.finance.model.dto.AtivoDTO;
+import br.com.exp.finance.model.dto.ValorTotalDTO;
 import br.com.exp.finance.service.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,8 +70,8 @@ public class AtivoController {
      * @return List<ValorTotalController>
      */
     @GetMapping("/ativos/total")
-    public List<ValorTotalController> getTotalByAtivo(){
+    public List<ValorTotalDTO> getTotalByAtivo(){
         List<AtivoDTO> listaDTO = ativoService.listaTotalDTO();
-        return listaDTO.stream().map(ValorTotalController::new).collect(Collectors.toList());
+        return listaDTO.stream().map(ValorTotalDTO::new).collect(Collectors.toList());
     }
 }
