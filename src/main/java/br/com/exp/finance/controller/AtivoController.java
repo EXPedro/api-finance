@@ -3,6 +3,7 @@ package br.com.exp.finance.controller;
 import br.com.exp.finance.exception.IdNotFoundException;
 import br.com.exp.finance.model.dto.AtivoDTO;
 import br.com.exp.finance.model.dto.ValorTotalDTO;
+import br.com.exp.finance.model.dto.response.AtivoResponse;
 import br.com.exp.finance.service.AtivoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,8 +44,9 @@ public class AtivoController {
      * @return List<AtivoDTO>
      */
     @GetMapping("/ativos")
-    public List<AtivoDTO> getAtivos(){
-        return ativoService.findAll();
+    public List<AtivoResponse> getAtivos(){
+        List<AtivoDTO> ativos = ativoService.findAll();
+        return ativos.stream().map(AtivoResponse::new).collect(Collectors.toList());
     }
 
     /**
@@ -61,7 +63,7 @@ public class AtivoController {
      * @return List<AtivoDTO>
      */
     @GetMapping("/ativos/carteira/{id}")
-    public List<AtivoDTO> getAtivosByCarteira(@PathVariable Long id) throws IdNotFoundException {
+    public List<AtivoDTO> getAtivosByCarteira(@PathVariable Long id){
         return ativoService.findByCarteira(id);
     }
 
